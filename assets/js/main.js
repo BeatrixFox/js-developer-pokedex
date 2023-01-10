@@ -6,8 +6,11 @@ const limit = 10
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
-    return `
-        <li class="pokemon ${pokemon.type}">
+    const li = document.createElement("li");
+    li.addEventListener("click", addEventToCardPokemon);
+    li.className = `pokemon ${pokemon.type}`;
+    li.setAttribute("id", `${pokemon.number}`);
+    li.innerHTML = `
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
@@ -19,18 +22,26 @@ function convertPokemonToLi(pokemon) {
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
-        </li>
+    
     `
+    pokemonList.appendChild(li)
+
+    return li
+}
+
+function addEventToCardPokemon(){
+   console.log("Clicou")
 }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-        const newHtml = pokemons.map(convertPokemonToLi).join('')
-        pokemonList.innerHTML += newHtml
+        const newHtml = pokemons.map(convertPokemonToLi)
+        console.log(newHtml)
     })
 }
 
 loadPokemonItens(offset, limit)
+
 
 loadMoreButton.addEventListener('click', () => {
     offset += limit
