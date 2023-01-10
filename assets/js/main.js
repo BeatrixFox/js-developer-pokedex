@@ -1,5 +1,6 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+let dataPokemons = []
 
 const maxRecords = 151
 const limit = 10
@@ -29,14 +30,15 @@ function convertPokemonToLi(pokemon) {
     return li
 }
 
-function addEventToCardPokemon(){
-   console.log("Clicou")
+function addEventToCardPokemon(event){
+   console.log(event.currentTarget)
 }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        dataPokemons = pokemons
         const newHtml = pokemons.map(convertPokemonToLi)
-        console.log(newHtml)
+        console.log(dataPokemons)
     })
 }
 
