@@ -1,0 +1,141 @@
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+  
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 85%;
+    height: 400px;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+}
+  
+#fade,
+#modal {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+  
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+  
+.modal-body{
+    margin-bottom: 1rem;
+    border-radius: 25px;
+    padding: 0.25rem;
+    height: 80%;
+}
+  
+#modal.hide,
+#fade.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+  
+#modal.hide {
+    top: 0;
+}
+
+.cardInfoPokemon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cardInfoPokemon div{
+    height: 90%;
+}
+
+.titleInfo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.cardModalPokemon{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    height: 55%;
+    overflow: auto;
+}
+
+.infoStatsPokemon{
+    display: flex;
+    width: 90%;
+    margin: 5px;
+    text-align: center;
+    text-transform: capitalize;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px;
+    border: 3px dotted rgb(143 136 136 / 44%);
+    border-radius: 25%;
+    justify-content: flex-end;
+    
+}
+.infoStatsPokemon:hover{
+    filter: brightness(1.5);
+    background-color: rgba(1, 0, 3, 0.911);
+    color: rgb(255, 254, 254);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} 
+
+.cardInfoPhoto{
+    max-width: 150px;
+    width: 50%;
+}
+
+.cardModalPokemon::-webkit-scrollbar {
+    width: 8px;              
+}
+  
+.cardModalPokemon::-webkit-scrollbar-track {
+    background: rgba(194, 34, 6, 0.336);       
+}
+  
+.cardModalPokemon::-webkit-scrollbar-thumb {
+    background-color: rgba(227, 227, 235, 0.555);  
+    border-radius: 20px;      
+    border: 2px solid rgb(58, 2, 0);  
+}
+
+@media screen and (min-width: 576px) {
+   .cardInfoPokemon{
+    flex-direction: row;
+   }
+   .cardModalPokemon{
+    height: 70%;
+   }
+}
+
+@media screen and (min-width: 768px) {
+    .cardModalPokemon{
+     height: 85%;
+    }
+}

@@ -20,6 +20,7 @@
     <!-- Nosso CSS -->
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/assets/css/pokedex.css">
+    <link rel="stylesheet" href="assets/css/cardModalPokemon.css">
 </head>
 
 <body>
@@ -28,19 +29,30 @@
 
         <ol id="pokemonList" class="pokemons">
             <!-- ..... Pokemons here ..... -->
-        </ol>
-
+        </ol>  
         <div class="pagination">
             <button id="loadMoreButton" type="button">
                 Load More
             </button>
         </div>
+        
+        <section id="fade" class="hide"></div>
+        <section id="modal" class="hide">
+          <div class="modal-header">
+            <h2>Este é o Seu Pokemon</h2>
+          </div>
+          <div class="modal-body">
+           
+          </div>
+        </div>
     </section>
 
     <!-- Nosso JS -->
     <script src="/assets/js/pokemon-model.js"></script>
-    <script src="/assets/js/poke-api.js"></script>
+    <script src="/assets/js/poke-api.js"></script> 
+    <script src="/assets/js/modalCardPokemon.js"></script>
     <script src="/assets/js/main.js"></script>
+   
 </body>
 
 </html>

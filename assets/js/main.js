@@ -31,14 +31,18 @@ function convertPokemonToLi(pokemon) {
 }
 
 function addEventToCardPokemon(event){
-   console.log(event.currentTarget)
+    const idPokemon = event.currentTarget.id
+    const dataPokemonSelected = dataPokemons.find(dataPoke => dataPoke.number == idPokemon)
+    cardInfoPokemonModal(dataPokemonSelected)
+    toggleModal()
+    console.log(dataPokemonSelected)
+    
 }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-        dataPokemons = pokemons
+        dataPokemons = dataPokemons.concat(pokemons)
         const newHtml = pokemons.map(convertPokemonToLi)
-        console.log(dataPokemons)
     })
 }
 
